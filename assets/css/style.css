@@ -1,0 +1,132 @@
+#background {
+	background-size:cover;
+	opacity: 0.9;
+}
+
+
+#headButton {
+	background-color:rgba(255,255,255,.93);
+	border:none;
+	width:100%;
+	height: 10%;
+
+}
+
+#logo {
+	margin-right:4%;
+	margin-top:-2%;
+}
+
+#buttons {
+
+        /* Positioning */
+        margin-top: 1%;
+
+        /* Typography */
+        text-align: center;
+
+      }
+
+      button {
+
+        /* Box-model */
+        width: 200px;
+        height: 100px;
+
+      }
+
+#question-holder {
+	text-align:center;
+	margin-top:2%;
+	background-color:rgba(198,14,14,.9);
+	width: 75%;
+	font-family: 'Playfair Display', serif;
+	color:white;
+	border:none;
+}
+
+#answer-holder {
+	text-align:center;
+	background-color:rgba(255,255,255, .95);
+	width: 75%;
+	font-family: 'Montserrat', sans-serif;
+	color:rgb(198,14,14);
+	border:none;
+}
+
+.answer-choices {
+	list-style: none;
+}
+
+p {
+	font-family: 'Playfair Display', serif;
+	font-size: 30px;
+}
+
+
+
+/* POP UP */s
+
+/* Outer */
+.popup {
+    width:100%;
+    height:100%;
+    display:none;
+    position:fixed;
+    top:0px;
+    left:0px;
+    background:rgba(0,0,0,0.75);
+}
+ 
+
+ .popupwin {
+    width:100%;
+    height:100%;
+    display:none;
+    position:fixed;
+    top:0px;
+    left:0px;
+    background:rgb(0,0,0);
+}
+/* Inner */
+.popup-inner {
+    max-width:700px;
+    width:90%;
+    padding:40px;
+    position:absolute;
+    top:50%;
+    left:50%;
+    -webkit-transform:translate(-50%, -50%);
+    transform:translate(-50%, -50%);
+    /*box-shadow:0px 2px 6px rgba(0,0,0,1);*/
+    border-radius:3px;
+    background:#fff;
+}
+ 
+/* Close Button */
+.popup-close {
+    width:30px;
+    height:30px;
+    padding-top:4px;
+    display:inline-block;
+    position:absolute;
+    top:0px;
+    right:0px;
+    transition:ease 0.25s all;
+    -webkit-transform:translate(50%, -50%);
+    transform:translate(50%, -50%);
+    border-radius:1000px;
+    background:rgba(0,0,0,0.8);
+    font-family:Arial, Sans-Serif;
+    font-size:20px;
+    text-align:center;
+    line-height:100%;
+    color:#fff;
+}
+ 
+.popup-close:hover {
+    -webkit-transform:translate(50%, -50%) rotate(180deg);
+    transform:translate(50%, -50%) rotate(180deg);
+    background:rgba(0,0,0,1);
+    text-decoration:none;
+}

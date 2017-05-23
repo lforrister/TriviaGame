@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title> Trivia Game </title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+
+	<!-- FONTS -->
+	<link href="https://fonts.googleapis.com/css?family=Montserrat|Playfair+Display" rel="stylesheet">
+</head>
+
+<body background = "assets/images/rosebackground.jpg" id="background">
+
+<!-- HEADER  -->
+<button id="headButton" type="button" class="btn btn-default btn-lg center-block"> <img src="assets/images/bachelorlogo.png" id="logo"></button>
+
+
+
+  <body>
+
+<!-- START & STOP BUTTONS -->
+    <div id="buttons">
+      <button id="start"><h2>Start</h2></button>
+      <button id="stop"><h2>Stop</h2></button>
+    </div>
+
+ <!-- QUESTION DIV -->
+
+    <div id="question-holder" class="btn btn-default btn-lg center-block"></div>
+
+ <!-- ANSWER DIV -->
+
+  <div id="answer-holder" class="btn btn-default btn-lg center-block">
+  	<ul class="answer-choices"> 
+		<li class="choice1 choice"> </li>
+		<li class= "choice2 choice"> </li>
+		<li class="choice3 choice"> </li>
+		<li class="choice4 choice"> </li>
+
+  	</ul>
+
+  </div>
+
+
+
+<!-- POP UP BUTTON -->
+
+<!-- Lose -->
+ 
+<div class="popup" data-popup="popup-1">
+    <div class="popup-inner btn btn-default btn-lg center-block">
+        <h2> Wrong! Maybe Next Time.</h2>
+        <img src="https://media.giphy.com/media/l3q2KnndHilbb8CS4/giphy.gif?response_id=59246d370f55ba73ff5794c1"> 
+        <a class="popup-close" data-popup-close="popup-1" href="#">x</a>
+    </div>
+</div>
+
+<!-- Win -->
+
+<div class="popupwin" data-popup="popup-1">
+    <div class="popup-inner btn btn-default btn-lg center-block">
+        <h2> You did it! Yay! </h2>
+        <img src="https://media.giphy.com/media/Omaji8UvDNTgY/giphy.gif"> 
+        <a class="popup-close" data-popup-close="popup-1" href="#">x</a>
+    </div>
+</div>
+
+
+
+
+
+   <!-- jQuery -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.js"></script>
+
+    <!-- Script -->
+    <script type="text/javascript" src="assets/javascript/app.js"></script>
+
+</body>
+</html>
