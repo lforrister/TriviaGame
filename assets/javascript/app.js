@@ -1,33 +1,6 @@
-// var questions = [{
-//     question: "Who was the OG Bachelor?",
-//     choices: ["Ben Higgins", "Alec Michel", "Jesse Palmer", "Chris Souls"],
-//     correctAnswer: 2
-// }, {
-//     question: "Who is the first African American Bachelorette?",
-//     choices: ["JoJo Fletcher", "Kaitlyn Bristow", "Rachel Lindsay", "Emily Maynard"],
-//     correctAnswer: 3
-// }, {
-//     question: "Who has been on the Bachelor franchise the most times?",
-//     choices: ["Juan Pablo Galavis", "Andi Dorfman", "Nick Viall", "Desiree Hartsock"],
-//     correctAnswer: 3
-// }, {
-//     question: "What Bachelorette contestant is known for getting in fights, lifting, and eating lots of deli meat?",
-//     choices: ["Chad Johnson", "Justin Rego", "Wes Hayden", "Evan Bass"],
-//     correctAnswer: 1
-// }, {
-//     question: "Which Bachelor contestant still has a nanny?",
-//     choices: ["Kelsey Poe", "Ashley Iaconetti", "Olivia Caridi", "Corrine Olympios"],
-//     correctAnswer: 4
-// }];
 
 
-// ------------ //
-
-
-// Slideshow Activity
-// Students: follow the instructions below:
-
-// TODO: Put links to our images in this image array.
+// Define Variables:
 
 
 var questions = [
@@ -55,32 +28,46 @@ var correctAnswers = [
 
 
 
-// Variable showImage will hold the setInterval when we start the slideshow
-var showTrivia;
 
-// Count will keep track of the index of the currently displaying picture.
+
+// Count will keep track of the index of the currently displaying picture
+// Counter will start the timer
 var count = 0;
+var counter = 0;
+// var timeleft = 0;
 
 
 
 
 
-// TODO: Use jQuery to run "startSlideshow" when we click the "start" button.
+// Stuff we want to happen when the window loads
 window.onload = function() {
     $(".popup").hide();
     $(".popupwin").hide();
-    $("#start").on("click", startSlideshow, console.log("started")); 
 
+    // Everything we want to happen when the start button is clicked (aka everything)
+    $("#start").on("click", timer);
+    $("#start").on("click", displayTrivia);
 
+ };
 
-// TODO: Use jQuery to run "stopSlideshow" when we click the "stop" button.
-$("#stop").on("click", stopSlideshow);
+    function timer (){
+        console.log("Hello");
+        $("#display").html(30);
+        function timeIt() {
+            counter++;
+            $("#display").html(counter);
+        }
+        setInterval(timeIt, 1000);
+
+        
+
 };
 
 
 
-// This function will replace display whatever image it's given
-// in the 'src' attribute of the img tag.
+
+// // This puts the correct questions in the right spot
 function displayTrivia() {
   $("#question-holder").html(questions[count]);
   $(".choice1").html(answers[count][0]);
@@ -88,9 +75,9 @@ function displayTrivia() {
   $(".choice3").html(answers[count][2]);
   $(".choice4").html(answers[count][3]);
 
-};
+  // When you click a right or wrong answer, this should happen 
 
-    $(".choice").on("click", function(event) {
+  $(".choice").on("click", function(event) {
         console.log(event.target.innerHTML);
 
         if (event.target.innerHTML === correctAnswers[count]){
@@ -98,8 +85,8 @@ function displayTrivia() {
         $(".popupwin").show();
             $(".popup-close").on("click", function () {
                 $(".popupwin").hide();
+                nextQuestion();
             });
-
 
     }
         else {
@@ -107,61 +94,58 @@ function displayTrivia() {
             $(".popup").show();
             $(".popup-close").on("click", function () {
                 $(".popup").hide();
+                nextQuestion();
             });
         }
     });
 
-// Make an array/object of correct answers, then make an if/else statement comparing the user's click to the correct answer. 
-// event.target.id (etc, look it up)
-  
+};
+
+    
 
 
-
+// This function makes it move to the next question
 
 function nextQuestion() {
+    count ++;
+    displayTrivia();
+    if (count === answers.length) {
+        count = 0;
+    }
 
-  // TODO: Increment the count by 1.
-
-  count ++;
-
-
-
-
-
-
-  // TODO: Use a setTimeout to run displayImage after 1 second.
-
-    setTimeout(displayTrivia, 3000);
+}
 
 
-  // TODO: If the count is the same as the length of the image array, reset the count to 0.
 
-  if (count === questions.length) {
-    count = 0;
-  }
+
+
+
+
+
 
  
 
-}
-function startSlideshow() {
+// }
+// function startSlideshow() {
 
-    showTrivia = setInterval(nextQuestion, 5000);
+//     showTrivia = setInterval(nextQuestion, 5000);
 
-  // TODO: Use showImage to hold the setInterval to run nextImage.
-
-}
-function stopSlideshow() {
-
-  // TODO: Put our clearInterval here:
-
-  clearInterval(showTrivia);
-
-}
+//   // TODO: Use showImage to hold the setInterval to run nextImage.
 
 
 
-// This will run the display image function as soon as the page loads.
-displayTrivia();
+// }
+// function stopSlideshow() {
+
+//   // TODO: Put our clearInterval here:
+
+//   clearInterval(showTrivia);
+
+// }
+
+
+// // This will run the display image function as soon as the page loads.
+// displayTrivia();
 
 
 
