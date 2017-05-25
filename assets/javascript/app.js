@@ -33,7 +33,7 @@ var correctAnswers = [
 // Count will keep track of the index of the currently displaying picture
 // Counter will start the timer
 var count = 0;
-var counter = 0;
+var counter = 15;
 // var timeleft = 0;
 
 
@@ -44,6 +44,7 @@ var counter = 0;
 window.onload = function() {
     $(".popup").hide();
     $(".popupwin").hide();
+    $(".popupnotime").hide();
 
     // Everything we want to happen when the start button is clicked (aka everything)
     $("#start").on("click", timer);
@@ -53,16 +54,32 @@ window.onload = function() {
 
     function timer (){
         console.log("Hello");
-        $("#display").html(30);
+        counter = 15;
+        $("#display").html(15);
         function timeIt() {
-            counter++;
+            counter--;
             $("#display").html(counter);
-        }
-        setInterval(timeIt, 1000);
 
-        
+            if (counter === 0) {
+                console.log("Time's Up!");
+                $(".popupnotime").show();
+            $(".popup-close").on("click", function () {
+                $(".popupnotime").hide();
+                nextQuestion();
+                stop();
+                timer();
+            });
+            }
+
+            
+        }
+        meagan = setInterval(timeIt, 1000);
+
+
 
 };
+
+
 
 
 
@@ -86,6 +103,8 @@ function displayTrivia() {
             $(".popup-close").on("click", function () {
                 $(".popupwin").hide();
                 nextQuestion();
+                stop();
+                timer();
             });
 
     }
@@ -95,6 +114,8 @@ function displayTrivia() {
             $(".popup-close").on("click", function () {
                 $(".popup").hide();
                 nextQuestion();
+                stop();
+                timer();
             });
         }
     });
@@ -108,6 +129,7 @@ function displayTrivia() {
 
 function nextQuestion() {
     count ++;
+    console.log(count);
     displayTrivia();
     if (count === answers.length) {
         count = 0;
@@ -115,7 +137,12 @@ function nextQuestion() {
 
 }
 
+ function stop() {
 
+  console.log("stopping");
+  clearInterval(meagan);
+
+}
 
 
 
